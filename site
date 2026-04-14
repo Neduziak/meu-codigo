@@ -1,0 +1,119 @@
+// Importa o React e o hook useState (para criar estados dinâmicos)
+import React,{ useState } from 'react';
+// Importa os componentes principais do React Native
+import{
+StyleSheet, // Usado para criar estilos (tipo CSS)
+Text,// Exibe textos na tela
+View,// Estrutura base (como uma div no HTML)
+Image,// Exibe imagens
+Textlnput,// Campo para digitação
+Button,// Botão padrão do sistema
+TouchableOpacity // Botão customizável (mais estilizaçãol
+} from 'react-native';
+// Função principal do aplicativo
+export default function App(){
+// Cria um estado chamado "nome'
+//"nome" guarda o valor digitado
+//"setNome" atualiza esse valor
+const [nome, setNome]= useState(");
+// Função que será executada ao clicar nos botões
+function mostrarAlerta(){
+// Exibe um alerta na tela com o nome digitado
+alert( Olá, S{nome}! Bem-vindo ao React Native 9);
+}
+
+// Parte visual do app (o que aparece na tela)
+return (
+// View principal→ responsável por centralizar todo o conteúdo
+<View style={styles.container}>
+
+{/* Texto de título */}
+<Text style={styles.titulo}>
+Meu Primeiro App
+</Text>
+
+{/* Imagem carregada da internet */}
+<Image
+source={{ uri:'https://reactnative.dev/img/tiny_logo.png&#39;}}// URL da imagem
+style={styles.imagem}// Aplica o estilo definido abaixo
+/>
+
+{/* Campo onde o usuário digita o nome */})
+<TextInput
+style={styles.input} // Estilo do campo
+placeholder="Digite seu nome"// Texto de dica dentro do campo
+onChangeText={setNome} // Atualiza o estado "nome" a cada digitação
+/>
+
+{/* Botão padrão*/}
+<Button
+title="Clique aqui"// Texto do botão
+onPress={mostrarAlerta} // Executa a função ao clicar
+/>
+
+{/* Botão customizado */}
+<TouchableOpacity
+style={styles.botao}// Estilo do botão
+onPress={mostrarAlerta} // Executa a mesma função
+>
+{/* Texto dentro do botão*/}
+<Text style={styles.textoBotao}>
+Botão Personalizado
+</Text>
+</TouchableOpacity>
+
+</View>
+);
+}
+
+// Criação dos estilos do aplicativo (semelhante ao CSS)
+const styles = StyleSheet.create({
+
+// Container principal da tela
+container:{
+flex: 1,// Faz ocupar toda a altura da tela
+justifyContent:'center',// Centraliza os elementos na vertical
+alignltems:'center',// Centraliza os elementos na horizontal
+backgroundColor:'#f2f2f2',// Cor de fundo da tela
+padding: 20,// Espaçamento interno
+},
+
+// Estilo do título
+tituio:{
+fontSize:24,// Tamanho da fonte
+fontWeight:'bold',// Deixa o texto em negrito
+marginBottom: 20,// Espaço abaixo do título
+},
+
+// Estilo da imagem
+imagem:{
+width: 100, // Largura da imagem
+height: 100, // Altura da imagem
+marginBottom: 20, // Espaço abaixo da imagem
+},
+
+// Estilo do campo de texto
+input:{
+width:'100%', // Ocupa toda a largura disponivel
+borderWidth: 1, // Espessura da borda
+borderColor:'#ccc', // Cor da borda
+padding: 10,// Espaçamento interno
+marginBottom: 15, // Espaço abaixo do campo
+borderRadius: 8, // Bordas arredondadas
+},
+
+// Estilo do botão customizado
+botao:{
+backgroundColor:'#007BFF',// Cor de fundo azul
+padding: 15,// Espaçamento interno
+borderRadius: 10,// Bordas arredondadas
+marginTop: 10,// Espaço acima do botão
+alignltems:'center',// Centraliza o texto dentro do botão
+width:'100%',// Ocupa toda a largura
+},
+// Estilo do texto dentro do botão
+textoBotao:{
+color:'#fff',// Cor branca
+fontWeight:'bold',// Texto em negrito
+},
+});
